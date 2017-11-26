@@ -1,0 +1,9 @@
+<p>
+  list-view works!
+</p>
+
+<ul>
+  <li *ngFor="let item of listing$ | async">
+    {{ item.title }}
+  </li>
+</ul>
