@@ -1,9 +1,13 @@
-<p>
-  list-view works!
-</p>
-
-<ul>
+<ul class="item-list">
   <li *ngFor="let item of listing$ | async">
-    {{ item.title }}
+    <app-item-view>
+      <div appItemViewAuthor>
+        <div>{{ item.subreddit }}</div>
+        <div>{{ item.author }}</div>
+      </div>
+      <img appItemViewImage *ngIf="item.previewImageUrl" [src]="item.previewImageUrl" />
+      <div appItemViewVotes>{{ item.score | number }} upvotes</div>
+      <div appItemViewTitle>{{ item.title }}</div>
+    </app-item-view>
   </li>
 </ul>

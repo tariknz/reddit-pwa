@@ -1,0 +1,21 @@
+<article class="item-view-container">
+  <header class="item-header">
+    <ng-content select="[appItemViewAuthor]">
+    </ng-content>
+  </header>
+  <div class="image-outer">
+    <div class="image-container">
+      <ng-content select="[appItemViewImage]"></ng-content>
+    </div>
+  </div>
+  <div class="bottom-content">
+    <div class="actions">
+      <mat-icon>thumb_up</mat-icon>
+      <mat-icon>thumb_down</mat-icon>
+      <mat-icon>comment</mat-icon>
+    </div>
+    <ng-content>
+
+    </ng-content>
+  </div>
+</article>

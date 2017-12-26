@@ -14,7 +14,7 @@ export class ListingService {
   public get(after: string = '') {
     return this.http
       .get<RedditResponseObject.RootObject>(
-        `${this.baseUrl}.json?after=${after}`
+        `${this.baseUrl}.json?raw_json=1&after=${after}`
       )
       .pipe(map((res => this.mapResponse(res))));
   }

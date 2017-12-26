@@ -35,3 +35,9 @@ $custom-typography: mat-typography-config(
 );
 
 @include angular-material-typography($custom-typography);
+
+body {
+  background: #fafafa;
+  margin: 0;
+  padding: 0;
+}
