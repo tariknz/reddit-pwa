@@ -1,19 +1,19 @@
 {
   "configVersion": 1,
-  "index": "https://tariknz.github.io/reddit-pwa/index.html",
+  "index": "/index.html",
   "assetGroups": [
     {
       "name": "app",
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "https://tariknz.github.io/reddit-pwa/favicon.ico",
-        "https://tariknz.github.io/reddit-pwa/index.html",
-        "https://tariknz.github.io/reddit-pwa/0.789667dd9251df871808.chunk.js",
-        "https://tariknz.github.io/reddit-pwa/inline.f9efc21d9464adba6ce6.bundle.js",
-        "https://tariknz.github.io/reddit-pwa/main.12d779afc100147abd94.bundle.js",
-        "https://tariknz.github.io/reddit-pwa/polyfills.8f287f21b0a8bbbc359e.bundle.js",
-        "https://tariknz.github.io/reddit-pwa/styles.63f02f4dab64ae6dacd3.bundle.css"
+        "/favicon.ico",
+        "/index.html",
+        "/0.789667dd9251df871808.chunk.js",
+        "/inline.f9efc21d9464adba6ce6.bundle.js",
+        "/main.12d779afc100147abd94.bundle.js",
+        "/polyfills.8f287f21b0a8bbbc359e.bundle.js",
+        "/styles.63f02f4dab64ae6dacd3.bundle.css"
       ],
       "patterns": []
     },
@@ -27,12 +27,12 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://tariknz.github.io/reddit-pwa/0.789667dd9251df871808.chunk.js": "d7de20ba879ad121c0804f523d5cb9ace74cb287",
-    "https://tariknz.github.io/reddit-pwa/inline.f9efc21d9464adba6ce6.bundle.js": "7b455d88112d9a9c5214bc8a4426460668680197",
-    "https://tariknz.github.io/reddit-pwa/main.12d779afc100147abd94.bundle.js": "f2dd9d177127fbbdcd8add8eee19ee260ed7bb60",
-    "https://tariknz.github.io/reddit-pwa/polyfills.8f287f21b0a8bbbc359e.bundle.js": "cefe009656c5cedc57cee21d9d24738e1ed00241",
-    "https://tariknz.github.io/reddit-pwa/styles.63f02f4dab64ae6dacd3.bundle.css": "4872402efc2b34be1d9ccb3994ff02e2b8f9d76d",
-    "https://tariknz.github.io/reddit-pwa/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://tariknz.github.io/reddit-pwa/index.html": "92edc63f76026de2c666e1cdb334a69e55afc797"
+    "/0.789667dd9251df871808.chunk.js": "d7de20ba879ad121c0804f523d5cb9ace74cb287",
+    "/inline.f9efc21d9464adba6ce6.bundle.js": "7b455d88112d9a9c5214bc8a4426460668680197",
+    "/main.12d779afc100147abd94.bundle.js": "f2dd9d177127fbbdcd8add8eee19ee260ed7bb60",
+    "/polyfills.8f287f21b0a8bbbc359e.bundle.js": "cefe009656c5cedc57cee21d9d24738e1ed00241",
+    "/styles.63f02f4dab64ae6dacd3.bundle.css": "4872402efc2b34be1d9ccb3994ff02e2b8f9d76d",
+    "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/index.html": "92edc63f76026de2c666e1cdb334a69e55afc797"
   }
 }
