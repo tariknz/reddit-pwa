@@ -14,7 +14,7 @@
     "ngsw-copy": "copy node_modules/@angular/service-worker/ngsw-worker.js dist/",
     "build-prod-ngsw": "ng build --prod && npm run ngsw-config",
     "serve-prod-ngsw": "npm run build-prod-ngsw && http-server dist -p 8080",
-    "publish": "ng build --prod --base-href \"https://tariknz.github.io/reddit-pwa/\" && npm run ngsw-config && ngh --no-silent --repo=\"https://github.com/tariknz/reddit-pwa.git\""
+    "publish": "ng build --prod --base-href \"https://tariknz.github.io/reddit-pwa/\" && ngh --no-silent --repo=\"https://github.com/tariknz/reddit-pwa.git\""
   },
   "private": true,
   "dependencies": {
