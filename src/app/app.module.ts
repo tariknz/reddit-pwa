@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     AppStoreModule,
     HttpClientModule,
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
+    environment.production ? ServiceWorkerModule.register('/reddit-pwa/ngsw-worker.js') : []
   ],
   providers: [
     { provide: BASE_URL_TOKEN, useValue: 'https://www.reddit.com/' }
