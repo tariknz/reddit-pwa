@@ -1,4 +1,5 @@
 language: node_js
+dist: trusty
 node_js:
   - "8"
 
@@ -16,7 +17,7 @@ install:
   - npm install
 
 script:
-  - npm run test -- --single-run
+  - npm run test:ci
 
 after_success:
   - npm run publish
