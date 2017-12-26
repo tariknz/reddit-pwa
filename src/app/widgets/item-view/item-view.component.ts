@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Directive, ViewEncapsulation, HostBinding } from '@angular/core';
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
+import { Directive, ViewEncapsulation, HostBinding, ChangeDetectionStrategy } from '@angular/core';
 
 @Directive({
   selector: '[appItemViewAuthor]',

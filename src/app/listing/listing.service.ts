@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BASE_URL_TOKEN } from '../common/tokens/base-url-token';
 import { Listing } from './listing.model';
 import { map } from 'rxjs/operators';
+import { RedditResponseObject } from './reddit-listing-response.model';
 
 @Injectable()
 export class ListingService {

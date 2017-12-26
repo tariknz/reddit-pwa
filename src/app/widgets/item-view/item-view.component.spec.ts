@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemViewComponent } from './item-view.component';
+import { MatIconModule } from '@angular/material';
 
 describe('ItemViewComponent', () => {
   let component: ItemViewComponent;
@@ -8,9 +9,10 @@ describe('ItemViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ItemViewComponent ]
+      imports: [MatIconModule],
+      declarations: [ItemViewComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

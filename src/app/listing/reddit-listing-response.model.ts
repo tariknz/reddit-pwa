@@ -1,4 +1,4 @@
-declare namespace RedditResponseObject {
+export declare namespace RedditResponseObject {
   export interface MediaEmbed {
     content: string;
     width?: number;
