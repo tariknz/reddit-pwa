@@ -1,0 +1,30 @@
+{
+  "short_name": "Duck Reader",
+  "name": "Duck Reader for Reddit",
+  "theme_color": "#ffffff",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "assets/icons/duck_48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "assets/icons/duck_128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "assets/icons/duck_256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "assets/icons/duck_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "https://tariknz.github.io/reddit-pwa/"
+}
