@@ -6,16 +6,15 @@
     "ng": "ng",
     "start": "ng serve --aot",
     "build": "ng build",
+    "build:prod": "ng set apps.0.serviceWorker=true && ng build --prod",
     "test": "ng test",
     "test:ci": "ng test --single-run --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ngsw-config": "node_modules/.bin/ngsw-config.cmd dist src/ngsw-config.json",
-    "ngsw-copy": "copy node_modules/@angular/service-worker/ngsw-worker.js dist/",
-    "build-prod-ngsw": "ng build --prod && npm run ngsw-config",
-    "serve-prod-ngsw": "npm run build-prod-ngsw && http-server dist -p 8080",
-    "publish": "ng build --prod --base-href \"https://tariknz.github.io/reddit-pwa/\" && ngh --no-silent --repo=\"https://github.com/tariknz/reddit-pwa.git\"",
-    "publish:ci": "ng build --prod --base-href \"https://tariknz.github.io/reddit-pwa/\" && ngh --no-silent --repo=\"https://GH_TOKEN@github.com/tariknz/reddit-pwa.git\" --name=\"Travis Build Agent\" --email=build@tarikk.com"
+    "ngsw-config": "ngsw-config dist src/ngsw-config.json",
+    "serve:ngsw": " npm run ngsw-config && http-server dist -p 8080",
+    "publish": "ng build --prod --base-href \"https://tariknz.github.io/reddit-pwa/\" && npm run ngsw-config -- \"https://tariknz.github.io/reddit-pwa/\" && ngh --no-silent --repo=\"https://github.com/tariknz/reddit-pwa.git\"",
+    "publish:ci": " ngh --no-silent --repo=\"https://GH_TOKEN@github.com/tariknz/reddit-pwa.git\" --name=\"Travis Build Agent\" --email=build@tarikk.com"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +36,7 @@
     "@ngrx/store-devtools": "^4.1.1",
     "angular-cli-ghpages": "^0.5.2",
     "core-js": "^2.4.1",
+    "http-server": "^0.10.0",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },

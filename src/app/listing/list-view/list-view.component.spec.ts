@@ -11,6 +11,12 @@ import { reducers, metaReducers } from '../../store/index';
 import { By } from '@angular/platform-browser';
 import { first } from 'rxjs/operators/first';
 
+@Component({
+  selector: 'app-item-view',
+  template: '<ng-content></ng-content>'
+})
+class MockItemViewComponent { }
+
 describe('ListViewComponent', () => {
   let component: ListViewComponent;
   let fixture: ComponentFixture<ListViewComponent>;
@@ -86,9 +92,3 @@ describe('ListViewComponent', () => {
     expect(firstItem.textContent).toMatch('test title', 'Title of listing was not rendered properly');
   });
 });
-
-@Component({
-  selector: 'app-item-view',
-  template: '<ng-content></ng-content>'
-})
-class MockItemViewComponent { }
