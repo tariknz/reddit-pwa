@@ -38,10 +38,10 @@
       "patterns": [
         "\\/"
       ],
-      "strategy": "performance",
+      "strategy": "freshness",
       "maxSize": 100,
-      "maxAge": 86400000,
-      "timeoutMs": 60000,
+      "maxAge": 3600000,
+      "timeoutMs": 5000,
       "version": 1
     }
   ],
