@@ -5,8 +5,15 @@
       "name": "app",
       "installMode": "prefetch",
       "resources": {
-        "files": ["/favicon.ico", "/index.html"],
-        "versionedFiles": ["/*.bundle.css", "/*.bundle.js", "/*.chunk.js"]
+        "files": [
+          "/favicon.ico",
+          "/index.html"
+        ],
+        "versionedFiles": [
+          "/*.bundle.css",
+          "/*.bundle.js",
+          "/*.chunk.js"
+        ]
       }
     },
     {
@@ -14,20 +21,26 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "resources": {
-        "files": ["/assets/**"],
-        "urls": ["https://fonts.googleapis.com/**"]
+        "files": [
+          "/assets/**"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/**"
+        ]
       }
     }
   ],
   "dataGroups": [
     {
       "name": "reddit-data",
-      "urls": ["/"],
+      "urls": [
+        "/"
+      ],
       "cacheConfig": {
         "maxSize": 100,
-        "maxAge": "1d",
-        "timeout": "1m",
-        "strategy": "performance"
+        "maxAge": "1h",
+        "timeout": "5s",
+        "strategy": "freshness"
       }
     }
   ]
