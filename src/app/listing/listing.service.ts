@@ -10,12 +10,12 @@ export class ListingService {
   constructor(
     @Inject(BASE_URL_TOKEN) private baseUrl: string,
     private http: HttpClient
-  ) {}
+  ) { }
 
   public get(after: string = '') {
     return this.http
       .get<RedditResponseObject.RootObject>(
-        `${this.baseUrl}.json?raw_json=1&after=${after}`
+      `${this.baseUrl}.json?raw_json=1&after=${after}`
       )
       .pipe(map((res => this.mapResponse(res))));
   }
@@ -30,6 +30,7 @@ export class ListingService {
         author: c.data.author,
         subreddit: c.data.subreddit_name_prefixed,
         score: c.data.score,
+        numOfcomments: c.data.num_comments,
         previewImageUrl: this.getImage(c.data)
       };
     });
@@ -47,6 +48,6 @@ export class ListingService {
     const resolutions = images[0].resolutions;
     const image = resolutions[Math.min(resolutions.length - 1, 3)];
 
-    return image.url;
+    return image ? image.url : undefined;
   }
 }

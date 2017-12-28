@@ -1,13 +1,18 @@
 <ul class="item-list">
-  <li *ngFor="let item of listing$ | async">
-    <app-item-view>
-      <div appItemViewAuthor>
-        <div>{{ item.subreddit }}</div>
-        <div>{{ item.author }}</div>
-      </div>
-      <img appItemViewImage *ngIf="item.previewImageUrl" [src]="item.previewImageUrl" />
-      <div appItemViewVotes>{{ item.score | number }} upvotes</div>
-      <div appItemViewTitle>{{ item.title }}</div>
-    </app-item-view>
-  </li>
+  <app-virtual-scroller [items]="listing$ | async">
+    <ng-template let-item>
+      <li #contentItem>
+        <app-item-view>
+          <div appItemViewAuthor>
+            <div>{{ item.subreddit }}</div>
+            <div>{{ item.author }}</div>
+          </div>
+          <img appItemViewImage *ngIf="item.previewImageUrl" [src]="item.previewImageUrl" />
+          <div appItemViewVotes>{{ item.score | number }} upvotes</div>
+          <div appItemViewTitle>{{ item.title }}</div>
+          <div appItemViewComments>View all {{ item.numOfcomments }} comments</div>
+        </app-item-view>
+      </li>
+    </ng-template>
+  </app-virtual-scroller>
 </ul>

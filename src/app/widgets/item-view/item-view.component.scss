@@ -1,7 +1,7 @@
 .item-view-container {
   max-width: 600px;
   width: 100%;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #fff;
   border-radius: 3px;
   background: #fff;
 }
@@ -13,7 +13,6 @@
 .author div {
   font-size: 14px;
   font-weight: bold;
-
   &:not(:first-child) {
     font-weight: normal;
   }
@@ -25,6 +24,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  width: 100vw;
 }
 
 .image {
@@ -34,12 +34,11 @@
 
 .actions {
   mat-icon {
-    color: rgba(0,0,0,0.3);
+    color: rgba(0, 0, 0, 0.3);
     &:hover {
-      color: rgba(0,0,0,0.8);
+      color: rgba(0, 0, 0, 0.8);
       cursor: pointer;
     }
-
     &:not(:last-child) {
       margin-right: 8px;
     }
@@ -48,10 +47,15 @@
 
 .bottom-content {
   margin: 16px;
-  line-height: 1.6em;
+  line-height: 1.4em;
 }
 
 .votes {
   font-weight: 600;
   margin: 8px 0;
+}
+
+.comments {
+  margin: 14px 0;
+  color: rgba(0, 0, 0, 0.55);
 }

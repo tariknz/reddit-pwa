@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material';
 import {
   ItemViewComponent, ItemViewAuthorDirective,
-  ItemViewImageDirective, ItemViewTitleDirective, ItemViewVotesDirective
+  ItemViewImageDirective, ItemViewTitleDirective, ItemViewVotesDirective, ItemViewCommentsDirective
 } from './item-view.component';
 
 @NgModule({
@@ -17,7 +17,8 @@ import {
     ItemViewImageDirective,
     ItemViewTitleDirective,
     ItemViewImageDirective,
-    ItemViewVotesDirective
+    ItemViewVotesDirective,
+    ItemViewCommentsDirective,
   ],
   declarations: [
     ItemViewComponent,
@@ -25,7 +26,8 @@ import {
     ItemViewImageDirective,
     ItemViewTitleDirective,
     ItemViewImageDirective,
-    ItemViewVotesDirective
+    ItemViewVotesDirective,
+    ItemViewCommentsDirective,
   ]
 })
 export class ItemViewModule { }

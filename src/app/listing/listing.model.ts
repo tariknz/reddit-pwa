@@ -5,4 +5,5 @@ export interface Listing {
   author: string;
   subreddit: string;
   score: number;
+  numOfcomments: number;
 }
