@@ -53,7 +53,7 @@ export class VirtualScrollerComponent implements OnChanges, OnInit {
   private childHeight$ = new EventEmitter<number>();
 
   private averageHeight = () =>
-    this.heightAppenderStack.reduce((a, b) => a + b, 0) / this.heightAppenderStack.length || this.DEFAULT_HEIGHT;
+    this.heightAppenderStack.reduce((a, b) => a + b, 0) / this.heightAppenderStack.length || this.DEFAULT_HEIGHT
 
   constructor() {}
 
