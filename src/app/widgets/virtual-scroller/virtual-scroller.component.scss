@@ -10,12 +10,10 @@
 
 .runway {
   position: relative;
-  border: 5px solid blue;
 }
 
 .view-port {
   position: absolute;
-  border: 5px solid red;
   width: 100%;
   display: flex;
   flex-direction: column;
