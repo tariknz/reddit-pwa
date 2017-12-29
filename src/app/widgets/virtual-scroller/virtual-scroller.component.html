@@ -1,0 +1,11 @@
+<div class="scrollable-area" #scrollableArea (scroll)="onScroll$.emit($event)">
+  <div class="runway" [style.height]="runwayHeight + 'px'">
+    <div class="view-port" [style.transform]="'translate(0,' + topPosition + 'px)'">
+      <ng-container *ngFor="let item of visibleItems">
+        <ng-container *ngTemplateOutlet="currentItem; context: { $implicit: item }">
+          <ng-content #contentItems></ng-content>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

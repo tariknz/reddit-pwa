@@ -9,6 +9,7 @@ import { ListingEffects } from './listing.effects';
 import { ListingService } from './listing.service';
 import { ListViewComponent } from './list-view/list-view.component';
 import { ItemViewModule } from '../widgets/item-view/item-view.module';
+import { VirtualScrollerModule } from '../widgets/virtual-scroller/virtual-scroller.module';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ItemViewModule } from '../widgets/item-view/item-view.module';
     EffectsModule.forFeature([
       ListingEffects,
     ]),
+    VirtualScrollerModule,
   ],
   declarations: [
     ListViewComponent

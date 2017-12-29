@@ -1,0 +1,21 @@
+:host {
+  width: 100%;
+}
+
+.scrollable-area {
+  overflow: auto;
+  height: 100vh;
+  width: 100%;
+}
+
+.runway {
+  position: relative;
+}
+
+.view-port {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
