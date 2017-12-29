@@ -9,9 +9,9 @@
       "urls": [
         "https://tariknz.github.io/reddit-pwa/favicon.ico",
         "https://tariknz.github.io/reddit-pwa/index.html",
-        "https://tariknz.github.io/reddit-pwa/0.87f0a2ca88d7c4d94416.chunk.js",
-        "https://tariknz.github.io/reddit-pwa/inline.7624c0b444f8e22e0df0.bundle.js",
-        "https://tariknz.github.io/reddit-pwa/main.1e800ef2f471900229c2.bundle.js",
+        "https://tariknz.github.io/reddit-pwa/0.abaffeee0ff06a75eab3.chunk.js",
+        "https://tariknz.github.io/reddit-pwa/inline.d3d2e5b715d603ff542a.bundle.js",
+        "https://tariknz.github.io/reddit-pwa/main.0c2179cc431c58828439.bundle.js",
         "https://tariknz.github.io/reddit-pwa/polyfills.8f287f21b0a8bbbc359e.bundle.js",
         "https://tariknz.github.io/reddit-pwa/styles.63f02f4dab64ae6dacd3.bundle.css"
       ],
@@ -46,16 +46,16 @@
     }
   ],
   "hashTable": {
-    "https://tariknz.github.io/reddit-pwa/0.87f0a2ca88d7c4d94416.chunk.js": "d7de20ba879ad121c0804f523d5cb9ace74cb287",
+    "https://tariknz.github.io/reddit-pwa/0.abaffeee0ff06a75eab3.chunk.js": "b3a3734936421063c83c85137d80fb0515a0a593",
     "https://tariknz.github.io/reddit-pwa/assets/icons/duck_128.png": "5fe6de969814d8d43d86ed87c8e05699ac969589",
-    "https://tariknz.github.io/reddit-pwa/inline.7624c0b444f8e22e0df0.bundle.js": "3b3d6b2dc984a49464cee8eff0b60e36571e32a1",
+    "https://tariknz.github.io/reddit-pwa/inline.d3d2e5b715d603ff542a.bundle.js": "7fbc732fc36218a9e410d28bccfd73d49d39cbbd",
     "https://tariknz.github.io/reddit-pwa/assets/icons/duck_256.png": "b666ed05715408882937249c9293f4af0e40006d",
-    "https://tariknz.github.io/reddit-pwa/main.1e800ef2f471900229c2.bundle.js": "01ff54f1fa0c454fc0b1e10d5cd5609d17cc0178",
+    "https://tariknz.github.io/reddit-pwa/main.0c2179cc431c58828439.bundle.js": "84095186f4aa49874503262f7d1647a8b7d6f6db",
     "https://tariknz.github.io/reddit-pwa/assets/icons/duck_48.png": "d8c173c909393f0efaa4753e810fd01797bbcb0c",
     "https://tariknz.github.io/reddit-pwa/polyfills.8f287f21b0a8bbbc359e.bundle.js": "cefe009656c5cedc57cee21d9d24738e1ed00241",
     "https://tariknz.github.io/reddit-pwa/assets/icons/duck_512.png": "4ec0b686e2612fdab3cac526cab478930c67446b",
     "https://tariknz.github.io/reddit-pwa/styles.63f02f4dab64ae6dacd3.bundle.css": "4872402efc2b34be1d9ccb3994ff02e2b8f9d76d",
     "https://tariknz.github.io/reddit-pwa/favicon.ico": "f001b9e47e66f750de2502b38fdd52243186f468",
-    "https://tariknz.github.io/reddit-pwa/index.html": "85e052e9adcff8a73113109549035601fbae06fc"
+    "https://tariknz.github.io/reddit-pwa/index.html": "94bb915f4eb567e7fb83fc2b52809adb3424c2fa"
   }
 }
