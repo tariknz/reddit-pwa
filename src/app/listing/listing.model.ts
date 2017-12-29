@@ -1,4 +1,5 @@
 export interface Listing {
+  name: string;
   title: string;
   url: string;
   previewImageUrl?: string;

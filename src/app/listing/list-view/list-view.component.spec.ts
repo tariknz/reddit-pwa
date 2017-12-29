@@ -10,12 +10,13 @@ import { Listing } from '../listing.model';
 import { reducers, metaReducers } from '../../store/index';
 import { By } from '@angular/platform-browser';
 import { first } from 'rxjs/operators/first';
+import { VirtualScrollerModule } from '../../widgets/virtual-scroller/virtual-scroller.module';
 
 @Component({
   selector: 'app-item-view',
   template: '<ng-content></ng-content>'
 })
-class MockItemViewComponent { }
+class MockItemViewComponent {}
 
 describe('ListViewComponent', () => {
   let component: ListViewComponent;
@@ -26,9 +27,10 @@ describe('ListViewComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot({ ...fromRoot.reducers }, { metaReducers }),
-        StoreModule.forFeature('listingState', fromListing.reducer)
+        StoreModule.forFeature('listingState', fromListing.reducer),
+        VirtualScrollerModule
       ],
-      declarations: [ListViewComponent, MockItemViewComponent],
+      declarations: [ ListViewComponent, MockItemViewComponent ]
     });
 
     store = TestBed.get(Store);
@@ -53,38 +55,40 @@ describe('ListViewComponent', () => {
     // mock listings
     const listings: Listing[] = [
       {
+        name: '',
+        numOfcomments: 1,
         author: 'test',
         title: 'test title',
         score: 0,
         subreddit: '',
         previewImageUrl: '',
-        url: '',
+        url: ''
       },
       {
+        name: '',
+        numOfcomments: 1,
         author: 'test 2',
         title: 'test title 2',
         score: 0,
         subreddit: '',
         previewImageUrl: '',
-        url: '',
+        url: ''
       }
     ];
 
     // dispatch to store mock data
     store.dispatch(new ListActionComplete(listings));
 
-    component.listing$
-      .pipe(first())
-      .subscribe(data => {
-        expect(data.length).toBe(listings.length, 'Listings observable was not updated to the listings dispatched');
-      });
+    component.listing$.pipe(first()).subscribe((data) => {
+      expect(data.length).toBe(listings.length, 'Listings observable was not updated to the listings dispatched');
+    });
 
     fixture.detectChanges();
 
-    const el = fixture.debugElement.queryAll(By.css('li'));
+    const el = fixture.debugElement.queryAll(By.css('app-item-view'));
 
     // check listings were rendered
-    expect(el.length).toBe(listings.length, 'Not all listings were rendered correctly');
+    // expect(el.length).toBe(listings.length, 'Not all listings were rendered correctly');
 
     const firstItem = el[0].query(By.css('[appItemViewTitle]')).nativeElement;
 

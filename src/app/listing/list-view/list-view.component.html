@@ -1,7 +1,7 @@
-<ul class="item-list">
-  <app-virtual-scroller [items]="listing$ | async">
+<div class="listings">
+  <app-virtual-scroller [items]="listing$ | async" (loadMore)="onLoadMore()">
     <ng-template let-item>
-      <li #contentItem>
+      <div #contentItem>
         <app-item-view>
           <div appItemViewAuthor>
             <div>{{ item.subreddit }}</div>
@@ -12,7 +12,7 @@
           <div appItemViewTitle>{{ item.title }}</div>
           <div appItemViewComments>View all {{ item.numOfcomments }} comments</div>
         </app-item-view>
-      </li>
+      </div>
     </ng-template>
   </app-virtual-scroller>
-</ul>
+</div>

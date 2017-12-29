@@ -1,78 +1,111 @@
-import { Component, ContentChild, OnInit, QueryList, TemplateRef } from '@angular/core';
-import { Input } from '@angular/core';
-import { HostListener } from '@angular/core';
-import { ElementRef } from '@angular/core';
-import { ChangeDetectionStrategy, OnChanges } from '@angular/core';
-import { ContentChildren } from '@angular/core';
-import { HostBinding } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  ContentChild,
+  EventEmitter,
+  OnInit,
+  QueryList,
+  TemplateRef,
+  Output,
+  Input,
+  ElementRef,
+  ChangeDetectionStrategy,
+  OnChanges,
+  ContentChildren,
+  HostBinding,
+  ViewChild
+} from '@angular/core';
+
+import { distinct } from 'rxjs/operators/distinct';
+import { scan } from 'rxjs/operators/scan';
+import { debounceTime } from 'rxjs/operators/debounceTime';
+import { throttleTime } from 'rxjs/operators/throttleTime';
 
 @Component({
   selector: 'app-virtual-scroller',
   templateUrl: './virtual-scroller.component.html',
-  styleUrls: ['./virtual-scroller.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: [ './virtual-scroller.component.scss' ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class VirtualScrollerComponent implements OnChanges {
-
+export class VirtualScrollerComponent implements OnChanges, OnInit {
   @Input() public items: any[] = [];
+
+  @ViewChild('scrollableArea') public scrollableArea: ElementRef;
+
   @ContentChild(TemplateRef) public currentItem;
   @ContentChildren('contentItem') public children: QueryList<ElementRef>;
 
-  @HostBinding('style.height') public hostHeight: string;
+  @Output() public loadMore = new EventEmitter<void>();
 
+  public runwayHeight = 10000;
   public visibleItems: any[] = [];
   public topPosition = 0;
+  public onScroll$ = new EventEmitter();
+
+  private readonly DEFAULT_HEIGHT = 800;
+  private readonly START_OFFSET = -1;
+  private readonly END_OFFSET = 4;
 
   private startIndex = 0;
-  private endIndex = 3;
+  private endIndex = this.startIndex + this.END_OFFSET;
 
-  private itemHeight = 800;
+  private heightAppenderStack: number[] = [];
+  private childHeight$ = new EventEmitter<number>();
 
-  constructor(private element: ElementRef) { }
+  private averageHeight = () =>
+    this.heightAppenderStack.reduce((a, b) => a + b, 0) / this.heightAppenderStack.length || this.DEFAULT_HEIGHT;
+
+  constructor() {}
+
+  public ngOnInit() {
+    this.updateVisibleItems();
+
+    this.childHeight$.pipe(distinct()).subscribe((height) => {
+      this.heightAppenderStack.push(height);
+      this.runwayHeight = this.items.length * this.averageHeight();
+    });
+
+    this.onScroll$.pipe(throttleTime(100)).subscribe(() => this.calculateVisibleItems());
+  }
 
   public ngOnChanges() {
     this.calculateVisibleItems();
+    this.runwayHeight = this.items.length * this.averageHeight();
   }
 
-  @HostListener('scroll', ['$event'])
-  public onScrollHandler(_: Event) {
-    this.calculateVisibleItems();
-  }
-
-  private calculateVisibleItems() {
-    const scrollTop = this.element.nativeElement.scrollTop;
+  private calculateVisibleItems(): void {
+    const scrollTop = this.scrollableArea.nativeElement.scrollTop;
     const elements = this.items.length;
-    const viewHeight = this.element.nativeElement.offsetHeight;
 
     if (this.children && this.children.first) {
-      this.itemHeight = this.children.first.nativeElement.clientHeight || this.itemHeight;
+      const itemHeight = this.children.first.nativeElement.clientHeight;
+      if (itemHeight) {
+        this.childHeight$.emit(itemHeight);
+      }
     }
 
-    console.log('itemHeight', this.itemHeight);
-    console.log('viewHeight', viewHeight);
+    let firstItem = Math.floor(scrollTop / this.averageHeight());
+    let lastItem = firstItem + this.END_OFFSET;
 
-    const firstItem = Math.floor(scrollTop / this.itemHeight);
-    let lastItem = firstItem + Math.ceil(viewHeight / this.itemHeight) + 1;
+    if (firstItem < 0) {
+      firstItem = 0;
+    }
+    if (lastItem >= this.items.length - 1) {
+      lastItem = this.items.length - 1;
+    }
 
-    if (lastItem + 1 >= this.items.length) { lastItem = this.items.length - 1; }
-
-    this.topPosition = firstItem * this.itemHeight;
-    this.startIndex = firstItem;
+    this.startIndex = firstItem + this.START_OFFSET <= 0 ? 0 : firstItem + this.START_OFFSET;
     this.endIndex = lastItem;
-
-    // when i comment out this line scroll events work
-    //this.hostHeight = (this.items.length * this.itemHeight) + 'px';
-
-    console.log(scrollTop);
-    console.log(this.children);
-    console.log('viewing items ' + firstItem + ' to ' + lastItem);
-
-    console.log(this.hostHeight);
+    this.topPosition = this.startIndex * this.averageHeight();
 
     this.updateVisibleItems();
   }
 
-  private updateVisibleItems() {
+  private updateVisibleItems(): void {
     this.visibleItems = this.items.slice(this.startIndex, this.endIndex);
+
+    if (this.endIndex >= this.items.length - 1) {
+      this.loadMore.emit();
+    }
   }
 }
