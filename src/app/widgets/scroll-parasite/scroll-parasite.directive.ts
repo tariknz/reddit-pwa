@@ -2,7 +2,7 @@ import { OnDestroy, Directive, HostListener, ElementRef, Renderer2, EventEmitter
 import { Subscription } from 'rxjs/Subscription';
 import { pairwise } from 'rxjs/operators/pairwise';
 import { map } from 'rxjs/operators/map';
-import { filter, tap } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 import { distinct } from 'rxjs/operators/distinct';
 
 @Directive({
@@ -30,7 +30,6 @@ export class ScrollParasiteDirective implements OnInit, OnDestroy {
         pairwise(),
         filter((positions) => positions[0] < positions[1]), // is scrolling down
         map((positions) => positions[1]),
-        tap((position) => console.log(position, this.el.nativeElement.scrollHeight)),
         filter((lastPos) => lastPos > this.el.nativeElement.scrollHeight - this.el.nativeElement.clientHeight * 2), // is at the bottom!
         map(() => this.el.nativeElement.scrollHeight),
         distinct()
