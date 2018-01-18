@@ -35,4 +35,8 @@ export class ListViewComponent implements OnInit {
       console.log('browser does not support sharing API');
     }
   }
+
+  public openLink(url: string) {
+    window.open(url, 'new');
+  }
 }
