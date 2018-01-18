@@ -12,6 +12,7 @@ import { By } from '@angular/platform-browser';
 import { first } from 'rxjs/operators/first';
 import { VirtualScrollerModule } from '../../widgets/virtual-scroller/virtual-scroller.module';
 import { MatIconModule } from '@angular/material';
+import { SharerModule } from '../../widgets/sharer/sharer.module';
 
 @Component({
   selector: 'app-item-view',
@@ -30,7 +31,8 @@ describe('ListViewComponent', () => {
         StoreModule.forRoot({ ...fromRoot.reducers }, { metaReducers }),
         StoreModule.forFeature('listingState', fromListing.reducer),
         VirtualScrollerModule,
-        MatIconModule
+        MatIconModule,
+        SharerModule,
       ],
       declarations: [ ListViewComponent, MockItemViewComponent ]
     });

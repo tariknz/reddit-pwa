@@ -4,10 +4,14 @@ import { BASE_URL_TOKEN } from '../common/tokens/base-url-token';
 import { Listing } from './listing.model';
 import { map } from 'rxjs/operators';
 import { RedditResponseObject } from './reddit-listing-response.model';
+import { SharerService } from '../widgets/sharer/sharer.service';
 
 @Injectable()
 export class ListingService {
-  constructor(@Inject(BASE_URL_TOKEN) private baseUrl: string, private http: HttpClient) {}
+  constructor(
+    @Inject(BASE_URL_TOKEN) private baseUrl: string,
+    private http: HttpClient
+  ) {}
 
   public get(after: string = '') {
     return this.http

@@ -6,6 +6,8 @@ node_js:
 addons:
   chrome: stable
 
+sudo: required
+
 branches:
   only:
     - master

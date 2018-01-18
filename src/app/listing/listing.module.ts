@@ -12,6 +12,7 @@ import { ItemViewModule } from '../widgets/item-view/item-view.module';
 import { VirtualScrollerModule } from '../widgets/virtual-scroller/virtual-scroller.module';
 import { MatIconModule } from '@angular/material';
 import { ScrollParasiteModule } from '../widgets/scroll-parasite/scroll-parasite.module';
+import { SharerModule } from '../widgets/sharer/sharer.module';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ScrollParasiteModule } from '../widgets/scroll-parasite/scroll-parasite
     ]),
     VirtualScrollerModule,
     MatIconModule,
-    ScrollParasiteModule
+    ScrollParasiteModule,
+    SharerModule
   ],
   declarations: [
     ListViewComponent
