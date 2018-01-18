@@ -30,7 +30,7 @@ export class ListViewComponent implements OnInit {
 
   public share(listing: Listing) {
     if (this.sharer.canShare()) {
-      this.sharer.share(listing.title, listing.subreddit, listing.url).subscribe();
+      this.sharer.share(listing.title, undefined, listing.url).subscribe();
     } else {
       console.log('browser does not support sharing API');
     }
