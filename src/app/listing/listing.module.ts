@@ -10,6 +10,8 @@ import { ListingService } from './listing.service';
 import { ListViewComponent } from './list-view/list-view.component';
 import { ItemViewModule } from '../widgets/item-view/item-view.module';
 import { VirtualScrollerModule } from '../widgets/virtual-scroller/virtual-scroller.module';
+import { MatIconModule } from '@angular/material';
+import { ScrollParasiteModule } from '../widgets/scroll-parasite/scroll-parasite.module';
 
 @NgModule({
   imports: [
@@ -21,6 +23,8 @@ import { VirtualScrollerModule } from '../widgets/virtual-scroller/virtual-scrol
       ListingEffects,
     ]),
     VirtualScrollerModule,
+    MatIconModule,
+    ScrollParasiteModule
   ],
   declarations: [
     ListViewComponent

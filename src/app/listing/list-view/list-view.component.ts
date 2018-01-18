@@ -16,7 +16,6 @@ export class ListViewComponent implements OnInit {
 
   constructor(private store: Store<StoreState>) {
     this.listing$ = this.store.select(getListings);
-
     this.store.select(getContinuationToken).subscribe((token) => (this.token = token));
   }
 
@@ -24,7 +23,11 @@ export class ListViewComponent implements OnInit {
     this.store.dispatch(new ListAction());
   }
 
-  public onLoadMore() {
+  public loadMore() {
     this.store.dispatch(new ListAction(this.token));
+  }
+
+  public onScroll() {
+    console.log('scrolling');
   }
 }

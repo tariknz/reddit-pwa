@@ -36,6 +36,13 @@ export class ItemViewCommentsDirective {
   @HostBinding('class') classes = 'comments';
 }
 
+@Directive({
+  selector: '[appItemViewActions]',
+})
+export class ItemViewActionsDirective {
+  @HostBinding('class') classes = 'actions';
+}
+
 @Component({
   selector: 'app-item-view',
   templateUrl: './item-view.component.html',

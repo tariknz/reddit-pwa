@@ -1,6 +1,5 @@
-<div class="listings">
-  <app-virtual-scroller [items]="listing$ | async" (loadMore)="onLoadMore()">
-    <ng-template let-item>
+<div class="listings" appScrollParasite (reachedBottom)="loadMore()">
+  <div *ngFor="let item of listing$ | async">
       <div #contentItem>
         <app-item-view>
           <div appItemViewAuthor>
@@ -11,8 +10,12 @@
           <div appItemViewVotes>{{ item.score | number }} upvotes</div>
           <div appItemViewTitle>{{ item.title }}</div>
           <div appItemViewComments>View all {{ item.numOfcomments }} comments</div>
+          <div appItemViewActions>
+            <mat-icon>thumb_up</mat-icon>
+            <mat-icon>thumb_down</mat-icon>
+            <mat-icon>comment</mat-icon>
+          </div>
         </app-item-view>
       </div>
-    </ng-template>
-  </app-virtual-scroller>
+    </div>
 </div>

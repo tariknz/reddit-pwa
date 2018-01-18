@@ -21,6 +21,7 @@ import { scan } from 'rxjs/operators/scan';
 import { debounceTime } from 'rxjs/operators/debounceTime';
 import { throttleTime } from 'rxjs/operators/throttleTime';
 
+// INCOMPLETE - DO NOT USE
 @Component({
   selector: 'app-virtual-scroller',
   templateUrl: './virtual-scroller.component.html',
@@ -44,13 +45,13 @@ export class VirtualScrollerComponent implements OnChanges, OnInit {
 
   private readonly DEFAULT_HEIGHT = 800;
   private readonly START_OFFSET = -1;
-  private readonly END_OFFSET = 4;
+  private readonly END_OFFSET = 50;
 
   private startIndex = 0;
   private endIndex = this.startIndex + this.END_OFFSET;
 
   private heightAppenderStack: number[] = [];
-  private childHeight$ = new EventEmitter<number>();
+  private childHeight$ = new EventEmitter<{ index: number; height: number }>();
 
   private averageHeight = () =>
     this.heightAppenderStack.reduce((a, b) => a + b, 0) / this.heightAppenderStack.length || this.DEFAULT_HEIGHT
@@ -60,7 +61,7 @@ export class VirtualScrollerComponent implements OnChanges, OnInit {
   public ngOnInit() {
     this.updateVisibleItems();
 
-    this.childHeight$.pipe(distinct()).subscribe((height) => {
+    this.childHeight$.subscribe((height) => {
       this.heightAppenderStack.push(height);
       this.runwayHeight = this.items.length * this.averageHeight();
     });
@@ -79,8 +80,9 @@ export class VirtualScrollerComponent implements OnChanges, OnInit {
 
     if (this.children && this.children.first) {
       const itemHeight = this.children.first.nativeElement.clientHeight;
+
       if (itemHeight) {
-        this.childHeight$.emit(itemHeight);
+        this.childHeight$.emit({ index: this.startIndex, height: itemHeight });
       }
     }
 

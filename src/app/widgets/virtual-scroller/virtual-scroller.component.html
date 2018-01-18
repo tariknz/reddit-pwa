@@ -2,9 +2,9 @@
   <div class="runway" [style.height]="runwayHeight + 'px'">
     <div class="view-port" [style.transform]="'translate(0,' + topPosition + 'px)'">
       <ng-container *ngFor="let item of visibleItems">
-        <ng-container *ngTemplateOutlet="currentItem; context: { $implicit: item }">
-          <ng-content #contentItems></ng-content>
-        </ng-container>
+          <div *ngTemplateOutlet="currentItem; context: { $implicit: item }" #contentItems data-id="{{ item.id }}">
+            <ng-content></ng-content>
+          </div>
       </ng-container>
     </div>
   </div>

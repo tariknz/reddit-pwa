@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material';
+import { ItemViewActionsDirective } from './item-view.component';
 import {
   ItemViewComponent, ItemViewAuthorDirective,
   ItemViewImageDirective, ItemViewTitleDirective, ItemViewVotesDirective, ItemViewCommentsDirective
@@ -8,8 +8,7 @@ import {
 
 @NgModule({
   imports: [
-    CommonModule,
-    MatIconModule
+    CommonModule
   ],
   exports: [
     ItemViewComponent,
@@ -19,6 +18,7 @@ import {
     ItemViewImageDirective,
     ItemViewVotesDirective,
     ItemViewCommentsDirective,
+    ItemViewActionsDirective
   ],
   declarations: [
     ItemViewComponent,
@@ -28,6 +28,7 @@ import {
     ItemViewImageDirective,
     ItemViewVotesDirective,
     ItemViewCommentsDirective,
+    ItemViewActionsDirective
   ]
 })
 export class ItemViewModule { }
