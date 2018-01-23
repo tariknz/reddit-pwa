@@ -6,7 +6,7 @@
             <div>{{ item.subreddit }}</div>
             <div>{{ item.author }}</div>
           </div>
-          <img appItemViewImage *ngIf="item.previewImageUrl" [src]="item.previewImageUrl" />
+          <img appItemViewImage *ngIf="item.previewImageUrl" [src]="item.previewImageUrl" [alt]="item.title" />
           <div appItemViewVotes>{{ item.score | number }} upvotes</div>
           <div appItemViewTitle>{{ item.title }}</div>
           <div appItemViewComments>View all {{ item.numOfcomments }} comments</div>
