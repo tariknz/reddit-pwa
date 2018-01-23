@@ -7,7 +7,7 @@
   "icons": [
     {
       "src": "assets/icons/duckreader.svg",
-      "sizes": "any"
+      "sizes": "48x48 92x92 192x192 512x512"
     }
   ],
   "start_url": "https://tariknz.github.io/reddit-pwa/"
