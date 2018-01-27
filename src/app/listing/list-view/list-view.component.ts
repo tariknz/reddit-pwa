@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { ListAction } from '../listing.actions';
 import { StoreState, getListings, getContinuationToken } from '../../store';
 import { SharerService } from '../../widgets/sharer/sharer.service';
+import { ViewChild } from '@angular/core';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-list-view',
@@ -14,6 +16,8 @@ import { SharerService } from '../../widgets/sharer/sharer.service';
 export class ListViewComponent implements OnInit {
   public listing$: Observable<Listing[]>;
   public token: string;
+
+  @ViewChild('viewport') public viewport: ElementRef;
 
   constructor(private store: Store<StoreState>, private sharer: SharerService) {
     this.listing$ = this.store.select(getListings);
@@ -38,5 +42,9 @@ export class ListViewComponent implements OnInit {
 
   public openLink(url: string) {
     window.open(url, 'new');
+  }
+
+  public onItemInView(listing: Listing) {
+    console.log('i am in view!!', listing.name);
   }
 }

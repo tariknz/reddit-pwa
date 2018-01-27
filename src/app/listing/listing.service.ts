@@ -20,23 +20,32 @@ export class ListingService {
   }
 
   private mapResponse(response: RedditResponseObject.RootObject): Listing[] {
-    console.log(response);
-
     return response.data.children.map((c) => {
-      return {
+      const mappedModel: Listing = {
         name: c.data.name,
         title: c.data.title,
         url: c.data.url,
         author: c.data.author,
         subreddit: c.data.subreddit_name_prefixed,
         score: c.data.score,
-        numOfcomments: c.data.num_comments,
-        previewImageUrl: this.getImage(c.data)
+        numOfcomments: c.data.num_comments
       };
+
+      const image = this.getImage(c.data);
+
+      if (image) {
+        mappedModel.previewImage = {
+          url: image.url,
+          width: image.width,
+          height: image.height
+        };
+      }
+
+      return mappedModel;
     });
   }
 
-  private getImage(data: RedditResponseObject.Data2): string {
+  private getImage(data: RedditResponseObject.Data2): RedditResponseObject.Resolution {
     // get first image
     if (!data.preview || !data.preview.images || !data.preview.images.length) {
       return undefined;
@@ -48,6 +57,6 @@ export class ListingService {
     const resolutions = images[0].resolutions;
     const image = resolutions[Math.min(resolutions.length - 1, 3)];
 
-    return image ? image.url : undefined;
+    return image;
   }
 }

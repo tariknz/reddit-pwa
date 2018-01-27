@@ -1,23 +1,28 @@
+<div #viewport class="viewport"></div>
 <div class="listings" appScrollParasite (reachedBottom)="loadMore()">
-  <div *ngFor="let item of listing$ | async">
-      <div #contentItem>
-        <app-item-view>
-          <div appItemViewAuthor>
-            <div>{{ item.subreddit }}</div>
-            <div>{{ item.author }}</div>
-          </div>
-          <img appItemViewImage *ngIf="item.previewImageUrl" [src]="item.previewImageUrl" [alt]="item.title" />
-          <div appItemViewVotes>{{ item.score | number }} upvotes</div>
-          <div appItemViewTitle>{{ item.title }}</div>
-          <div appItemViewComments>View all {{ item.numOfcomments }} comments</div>
-          <div appItemViewActions>
-            <mat-icon>thumb_up</mat-icon>
-            <mat-icon>thumb_down</mat-icon>
-            <mat-icon>comment</mat-icon>
-            <mat-icon (click)="openLink(item.url)">open_in_new</mat-icon>
-            <mat-icon (click)="share(item)">share</mat-icon>
-          </div>
-        </app-item-view>
+  <div *ngFor="let item of listing$ | async" appInView (itemInView)="onItemInView(item)">
+    <app-item-view>
+      <div appItemViewAuthor>
+        <strong>{{ item.name }}</strong>
+        <div>{{ item.subreddit }}</div>
+        <div>{{ item.author }}</div>
       </div>
-    </div>
+      <img appItemViewImage *ngIf="item.previewImage"
+        [style.min-width]="item.previewImage.width + 'px'"
+        [style.min-height]="item.previewImage.height + 'px'"
+        [src]="item.previewImage.url"
+        [alt]="item.title"
+      />
+      <div appItemViewVotes>{{ item.score | number }} upvotes</div>
+      <div appItemViewTitle>{{ item.title }}</div>
+      <div appItemViewComments>View all {{ item.numOfcomments }} comments</div>
+      <div appItemViewActions>
+        <mat-icon>thumb_up</mat-icon>
+        <mat-icon>thumb_down</mat-icon>
+        <mat-icon>comment</mat-icon>
+        <mat-icon (click)="openLink(item.url)">open_in_new</mat-icon>
+        <mat-icon (click)="share(item)">share</mat-icon>
+      </div>
+    </app-item-view>
+  </div>
 </div>
