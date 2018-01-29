@@ -9,8 +9,8 @@
       "urls": [
         "https://tariknz.github.io/reddit-pwa/favicon.ico",
         "https://tariknz.github.io/reddit-pwa/index.html",
-        "https://tariknz.github.io/reddit-pwa/0.839a31fff261dcf5f134.chunk.js",
-        "https://tariknz.github.io/reddit-pwa/inline.0c386a8c981a06e11fd6.bundle.js",
+        "https://tariknz.github.io/reddit-pwa/0.2a317709723c65058b5d.chunk.js",
+        "https://tariknz.github.io/reddit-pwa/inline.26545fb288ee56ee61d5.bundle.js",
         "https://tariknz.github.io/reddit-pwa/main.f0666f21d27f1d8f7f4a.bundle.js",
         "https://tariknz.github.io/reddit-pwa/polyfills.8f287f21b0a8bbbc359e.bundle.js",
         "https://tariknz.github.io/reddit-pwa/styles.63f02f4dab64ae6dacd3.bundle.css"
@@ -44,14 +44,14 @@
     }
   ],
   "hashTable": {
-    "https://tariknz.github.io/reddit-pwa/0.839a31fff261dcf5f134.chunk.js": "b497ae1e236b29ea22ebb1f8d4eff4a504172b3e",
+    "https://tariknz.github.io/reddit-pwa/0.2a317709723c65058b5d.chunk.js": "266f8c26a025a230465c1bda27466c9e416fc278",
     "https://tariknz.github.io/reddit-pwa/assets/icons/duck_192.png": "76f7e50e8cf293a47fc9dc3db155208cb99defe7",
-    "https://tariknz.github.io/reddit-pwa/inline.0c386a8c981a06e11fd6.bundle.js": "9f7ce240c71a6c3aa27692e0997d1183eaeee757",
+    "https://tariknz.github.io/reddit-pwa/inline.26545fb288ee56ee61d5.bundle.js": "1ef4e07877c1e5ce7b6dc295a88822ea788def0f",
     "https://tariknz.github.io/reddit-pwa/assets/icons/duck_512.png": "d3a81f6b064d38397f4df9cd5e163597db0bc6a1",
     "https://tariknz.github.io/reddit-pwa/main.f0666f21d27f1d8f7f4a.bundle.js": "23fce218b378a24f60d4c547497ef847b90e800c",
     "https://tariknz.github.io/reddit-pwa/polyfills.8f287f21b0a8bbbc359e.bundle.js": "cefe009656c5cedc57cee21d9d24738e1ed00241",
     "https://tariknz.github.io/reddit-pwa/styles.63f02f4dab64ae6dacd3.bundle.css": "4872402efc2b34be1d9ccb3994ff02e2b8f9d76d",
     "https://tariknz.github.io/reddit-pwa/favicon.ico": "b75f1c7d1968de1dc0a7b4ff62b61821961dd410",
-    "https://tariknz.github.io/reddit-pwa/index.html": "923b86404c07eaa7f5693787fd4a4b2c25905c92"
+    "https://tariknz.github.io/reddit-pwa/index.html": "6a90bde3613ce8f3a892a881a805cbde2a548404"
   }
 }
