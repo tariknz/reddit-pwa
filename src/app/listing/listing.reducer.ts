@@ -35,7 +35,7 @@ export function reducer(state = initialState, action: ListingActions) {
       return {
         ...state,
         listings: [
-          ...state.listings.slice(0, listingIndex - 1),
+          ...state.listings.slice(0, listingIndex),
           { ...listing },
           ...state.listings.slice(listingIndex + 1),
         ]
