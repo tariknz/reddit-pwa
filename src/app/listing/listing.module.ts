@@ -13,6 +13,7 @@ import { VirtualScrollerModule } from '../widgets/virtual-scroller/virtual-scrol
 import { MatIconModule } from '@angular/material';
 import { ScrollParasiteModule } from '../widgets/scroll-parasite/scroll-parasite.module';
 import { SharerModule } from '../widgets/sharer/sharer.module';
+import { InViewModule } from '../widgets/in-view/in-view.module';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { SharerModule } from '../widgets/sharer/sharer.module';
     VirtualScrollerModule,
     MatIconModule,
     ScrollParasiteModule,
-    SharerModule
+    SharerModule,
+    InViewModule
   ],
   declarations: [
     ListViewComponent

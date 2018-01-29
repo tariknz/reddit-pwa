@@ -6,7 +6,7 @@ import { Store, StoreModule, combineReducers } from '@ngrx/store';
 import * as fromRoot from '../../store';
 import * as fromListing from './../listing.reducer';
 import { ListAction, ListActionComplete, ListingActionTypes } from '../listing.actions';
-import { Listing } from '../listing.model';
+import { Listing } from '../models/listing.model';
 import { reducers, metaReducers } from '../../store/index';
 import { By } from '@angular/platform-browser';
 import { first } from 'rxjs/operators/first';
@@ -59,24 +59,34 @@ describe('ListViewComponent', () => {
     // mock listings
     const listings: Listing[] = [
       {
-        name: '',
+        id: '',
         numOfcomments: 1,
         author: 'test',
         title: 'test title',
         score: 0,
         subreddit: '',
-        previewImageUrl: '',
-        url: ''
+        previewImage: {
+          url: '',
+          width: 100,
+          height: 100,
+        },
+        url: '',
+        comments: []
       },
       {
-        name: '',
+        id: '',
         numOfcomments: 1,
         author: 'test 2',
         title: 'test title 2',
         score: 0,
         subreddit: '',
-        previewImageUrl: '',
-        url: ''
+        previewImage: {
+          url: '',
+          width: 100,
+          height: 100,
+        },
+        url: '',
+        comments: []
       }
     ];
 

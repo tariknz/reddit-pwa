@@ -1,4 +1,4 @@
-import { Listing } from './listing.model';
+import { Listing } from './models/listing.model';
 import { ListingActions, ListingActionTypes } from './listing.actions';
 import { createSelector } from '@ngrx/store/src/selector';
 
@@ -18,13 +18,27 @@ export function reducer(state = initialState, action: ListingActions) {
       let lastItem: string;
 
       if (action.payload.length) {
-        lastItem = action.payload[action.payload.length - 1].name;
+        lastItem = action.payload[action.payload.length - 1].id;
       }
 
       return {
         ...state,
         listings: state.listings.concat(action.payload),
         continuationToken: lastItem
+      };
+    case ListingActionTypes.LOAD_FIRST_COMMENTS_COMPLETE:
+      const listingIndex = state.listings.findIndex(l => l.id === action.payload.listingId);
+      const listing = state.listings[listingIndex];
+
+      listing.comments = action.payload.comments;
+
+      return {
+        ...state,
+        listings: [
+          ...state.listings.slice(0, listingIndex),
+          { ...listing },
+          ...state.listings.slice(listingIndex + 1),
+        ]
       };
     default:
       return state;
