@@ -59,24 +59,34 @@ describe('ListViewComponent', () => {
     // mock listings
     const listings: Listing[] = [
       {
-        name: '',
+        id: '',
         numOfcomments: 1,
         author: 'test',
         title: 'test title',
         score: 0,
         subreddit: '',
-        previewImageUrl: '',
-        url: ''
+        previewImage: {
+          url: '',
+          width: 100,
+          height: 100,
+        },
+        url: '',
+        comments: []
       },
       {
-        name: '',
+        id: '',
         numOfcomments: 1,
         author: 'test 2',
         title: 'test title 2',
         score: 0,
         subreddit: '',
-        previewImageUrl: '',
-        url: ''
+        previewImage: {
+          url: '',
+          width: 100,
+          height: 100,
+        },
+        url: '',
+        comments: []
       }
     ];
 
