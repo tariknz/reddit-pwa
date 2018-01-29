@@ -3,7 +3,7 @@
   <div *ngFor="let item of listing$ | async" appInView (itemInView)="onItemInView(item)">
     <app-item-view>
       <div appItemViewAuthor>
-        <strong>{{ item.name }}</strong>
+        <!-- <strong>{{ item.name }}</strong> -->
         <div>{{ item.subreddit }}</div>
         <div>{{ item.author }}</div>
       </div>
@@ -14,7 +14,10 @@
         [alt]="item.title"
       />
       <div appItemViewVotes>{{ item.score | number }} upvotes</div>
-      <div appItemViewTitle>{{ item.title }}</div>
+      <p appItemViewTitle>{{ item.title }}</p>
+      <p *ngFor="let comment of item.comments">
+        <strong>{{ comment.author }}</strong> {{ comment.body }}
+      </p>
       <div appItemViewComments>View all {{ item.numOfcomments }} comments</div>
       <div appItemViewActions>
         <mat-icon>thumb_up</mat-icon>

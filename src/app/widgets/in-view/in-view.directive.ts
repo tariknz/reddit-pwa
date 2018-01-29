@@ -11,7 +11,8 @@ export class InViewDirective implements OnInit {
   public ngOnInit() {
     const observer = new IntersectionObserver(
       (ev) => {
-        if (ev[0].isIntersecting) {
+        // TODO: Currently Angular AOT does not recognise IntersectionObserverEntry type to have that property
+        if ((ev[0] as any).isIntersecting) {
           this.itemInView.next();
         }
       },

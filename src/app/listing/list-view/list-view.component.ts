@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Listing } from '../listing.model';
+import { Listing } from '../models/listing.model';
 import { Observable } from 'rxjs/Observable';
-import { ListAction } from '../listing.actions';
+import { ListAction, LoadFirstCommentsAction } from '../listing.actions';
 import { StoreState, getListings, getContinuationToken } from '../../store';
 import { SharerService } from '../../widgets/sharer/sharer.service';
 import { ViewChild } from '@angular/core';
@@ -45,6 +45,11 @@ export class ListViewComponent implements OnInit {
   }
 
   public onItemInView(listing: Listing) {
-    console.log('i am in view!!', listing.name);
+    if (!listing.comments.length) {
+      this.store.dispatch(new LoadFirstCommentsAction({
+        listingId: listing.id,
+        subreddit: listing.subreddit
+      }));
+    }
   }
 }

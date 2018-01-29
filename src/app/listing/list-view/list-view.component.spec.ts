@@ -6,7 +6,7 @@ import { Store, StoreModule, combineReducers } from '@ngrx/store';
 import * as fromRoot from '../../store';
 import * as fromListing from './../listing.reducer';
 import { ListAction, ListActionComplete, ListingActionTypes } from '../listing.actions';
-import { Listing } from '../listing.model';
+import { Listing } from '../models/listing.model';
 import { reducers, metaReducers } from '../../store/index';
 import { By } from '@angular/platform-browser';
 import { first } from 'rxjs/operators/first';

@@ -1,5 +1,8 @@
+import { ListingImage } from './listing-image.model';
+import { Comment } from './comment.model';
+
 export interface Listing {
-  name: string;
+  id: string;
   title: string;
   url: string;
   author: string;
@@ -7,10 +10,5 @@ export interface Listing {
   score: number;
   numOfcomments: number;
   previewImage?: ListingImage;
-}
-
-export interface ListingImage {
-  url: string;
-  width: number;
-  height: number;
+  comments: Comment[];
 }
