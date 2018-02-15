@@ -18,7 +18,7 @@ export function reducer(state = initialState, action: ListingActions) {
       let lastItem: string;
 
       if (action.payload.length) {
-        lastItem = action.payload[action.payload.length - 1].id;
+        lastItem = action.payload[action.payload.length - 1].name;
       }
 
       return {

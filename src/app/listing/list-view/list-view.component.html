@@ -24,7 +24,7 @@
         <mat-icon>thumb_down</mat-icon>
         <mat-icon>comment</mat-icon>
         <mat-icon (click)="openLink(item.url)">open_in_new</mat-icon>
-        <mat-icon (click)="share(item)">share</mat-icon>
+        <mat-icon *ngIf="sharer.canShare()" (click)="share(item)">share</mat-icon>
       </div>
     </app-item-view>
   </div>

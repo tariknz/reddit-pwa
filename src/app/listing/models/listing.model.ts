@@ -3,6 +3,7 @@ import { Comment } from './comment.model';
 
 export interface Listing {
   id: string;
+  name: string;
   title: string;
   url: string;
   author: string;

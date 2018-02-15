@@ -27,6 +27,7 @@ export class ListingService {
     return response.data.children.map((c) => {
       const mappedModel: Listing = {
         id: c.data.id,
+        name: c.data.name,
         title: c.data.title,
         url: c.data.url,
         author: c.data.author,

@@ -11,7 +11,7 @@ import { ElementRef } from '@angular/core';
 @Component({
   selector: 'app-list-view',
   templateUrl: './list-view.component.html',
-  styleUrls: [ './list-view.component.scss' ]
+  styleUrls: ['./list-view.component.scss'],
 })
 export class ListViewComponent implements OnInit {
   public listing$: Observable<Listing[]>;
@@ -19,9 +19,11 @@ export class ListViewComponent implements OnInit {
 
   @ViewChild('viewport') public viewport: ElementRef;
 
-  constructor(private store: Store<StoreState>, private sharer: SharerService) {
+  constructor(private store: Store<StoreState>, public sharer: SharerService) {
     this.listing$ = this.store.select(getListings);
-    this.store.select(getContinuationToken).subscribe((token) => (this.token = token));
+    this.store
+      .select(getContinuationToken)
+      .subscribe(token => (this.token = token));
   }
 
   public ngOnInit() {
@@ -29,6 +31,7 @@ export class ListViewComponent implements OnInit {
   }
 
   public loadMore() {
+    console.log(this.token);
     this.store.dispatch(new ListAction(this.token));
   }
 
@@ -46,10 +49,12 @@ export class ListViewComponent implements OnInit {
 
   public onItemInView(listing: Listing) {
     if (!listing.comments.length) {
-      this.store.dispatch(new LoadFirstCommentsAction({
-        listingId: listing.id,
-        subreddit: listing.subreddit
-      }));
+      this.store.dispatch(
+        new LoadFirstCommentsAction({
+          listingId: listing.id,
+          subreddit: listing.subreddit,
+        }),
+      );
     }
   }
 }

@@ -1,11 +1,12 @@
 import { ActionReducer } from '@ngrx/store';
 import { StoreState } from './';
 
-// console.log all actions
+// console.debug all actions
 export function logger(reducer: ActionReducer<StoreState>): ActionReducer<StoreState> {
+  // tslint:disable:no-console
   return function(state: StoreState, action: any): StoreState {
-    console.log('state', state);
-    console.log('action', action);
+    console.debug('state', state);
+    console.debug('action', action);
 
     return reducer(state, action);
   };
