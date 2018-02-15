@@ -60,6 +60,7 @@ describe('ListViewComponent', () => {
     const listings: Listing[] = [
       {
         id: '',
+        name: '',
         numOfcomments: 1,
         author: 'test',
         title: 'test title',
@@ -75,6 +76,7 @@ describe('ListViewComponent', () => {
       },
       {
         id: '',
+        name: '',
         numOfcomments: 1,
         author: 'test 2',
         title: 'test title 2',
@@ -102,7 +104,7 @@ describe('ListViewComponent', () => {
     const el = fixture.debugElement.queryAll(By.css('app-item-view'));
 
     // check listings were rendered
-    // expect(el.length).toBe(listings.length, 'Not all listings were rendered correctly');
+    expect(el.length).toBe(listings.length, 'Not all listings were rendered correctly');
 
     const firstItem = el[0].query(By.css('[appItemViewTitle]')).nativeElement;
 
