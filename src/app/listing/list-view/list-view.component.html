@@ -7,11 +7,14 @@
         <div>{{ item.subreddit }}</div>
         <div>{{ item.author }}</div>
       </div>
-      <img appItemViewImage *ngIf="item.previewImage"
-        [style.min-height]="item.previewImage.height + 'px'"
+      <img appItemViewImage *ngIf="item.previewImage && (!item.media || !item.media.enablePreview)"
         [src]="item.previewImage.url"
         [alt]="item.title"
       />
+      <video appItemViewImage autoplay controls playsinline muted
+        *ngIf="item.media && item.media.enablePreview && item.media.isGif"
+        [src]="item.media.url">
+      </video>
       <div appItemViewVotes>{{ item.score | number }} upvotes</div>
       <p appItemViewTitle>{{ item.title }}</p>
       <p *ngFor="let comment of item.comments">

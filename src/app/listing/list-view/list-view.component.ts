@@ -56,5 +56,10 @@ export class ListViewComponent implements OnInit {
         }),
       );
     }
+
+    // replace src
+    if (listing.media) {
+      listing.media.enablePreview = true;
+    }
   }
 }

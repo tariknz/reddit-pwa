@@ -35,6 +35,7 @@ export declare namespace RedditResponse {
 
   export interface Preview {
     images: Image[];
+    reddit_video_preview: RedditVideoPreview;
     enabled: boolean;
   }
 
@@ -61,4 +62,16 @@ export declare namespace RedditResponse {
     kind: string;
     data: Data;
   }
+
+  export interface RedditVideoPreview {
+    fallback_url: string;
+    height: number;
+    width: number;
+    scrubber_media_url: string;
+    dash_url: string;
+    duration: number;
+    hls_url: string;
+    is_gif: boolean;
+    transcoding_status: string;
+}
 }

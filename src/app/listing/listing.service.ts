@@ -9,22 +9,36 @@ import { Comment } from './models/comment.model';
 
 @Injectable()
 export class ListingService {
-  constructor(@Inject(BASE_URL_TOKEN) private baseUrl: string, private http: HttpClient) {}
+  constructor(
+    @Inject(BASE_URL_TOKEN) private baseUrl: string,
+    private http: HttpClient,
+  ) {}
 
   public get(after: string = '') {
     return this.http
-      .get<RedditResponse.Listing>(`${this.baseUrl}.json?raw_json=1&after=${after}`)
-      .pipe(map((res) => this.mapResponse(res)));
+      .get<RedditResponse.Listing>(
+        `${this.baseUrl}.json?raw_json=1&after=${after}`,
+      )
+      .pipe(map(res => this.mapResponse(res)));
   }
 
-  public getComments(listingId: string, subreddit: string, limit: number, after: string = '') {
+  public getComments(
+    listingId: string,
+    subreddit: string,
+    limit: number,
+    after: string = '',
+  ) {
     return this.http
-      .get<RedditResponse.Listing[]>(`${this.baseUrl}/${subreddit}/comments/${listingId}.json?raw_json=1&limit=${limit}&after=${after}`)
-      .pipe(map((res) => this.mapCommentsResponse(res)));
+      .get<RedditResponse.Listing[]>(
+        `${
+          this.baseUrl
+        }/${subreddit}/comments/${listingId}.json?raw_json=1&limit=${limit}&after=${after}`,
+      )
+      .pipe(map(res => this.mapCommentsResponse(res)));
   }
 
   private mapResponse(response: RedditResponse.Listing): Listing[] {
-    return response.data.children.map((c) => {
+    return response.data.children.map(c => {
       const mappedModel: Listing = {
         id: c.data.id,
         name: c.data.name,
@@ -34,7 +48,7 @@ export class ListingService {
         subreddit: c.data.subreddit_name_prefixed,
         score: c.data.score,
         numOfcomments: c.data.num_comments,
-        comments: []
+        comments: [],
       };
 
       const image = this.getImage(c.data);
@@ -43,7 +57,16 @@ export class ListingService {
         mappedModel.previewImage = {
           url: image.url,
           width: image.width,
-          height: image.height
+          height: image.height,
+        };
+      }
+
+      if (c.data.preview && c.data.preview.reddit_video_preview) {
+        const mediaPreview = c.data.preview.reddit_video_preview;
+        mappedModel.media = {
+          url: mediaPreview.fallback_url,
+          isGif: mediaPreview.is_gif,
+          enablePreview: false, // defaults to false until its in view
         };
       }
 
@@ -75,20 +98,24 @@ export class ListingService {
   }
 
   private mapComments(listing: RedditResponse.Listing): Comment[] {
-    if (!listing.data || !listing.data.children || !listing.data.children.length) {
+    if (
+      !listing.data ||
+      !listing.data.children ||
+      !listing.data.children.length
+    ) {
       return [];
     }
 
     const comments: Comment[] = listing.data.children
-      .filter((c) => c.kind !== 'more')
-      .map((c) => {
+      .filter(c => c.kind !== 'more')
+      .map(c => {
         return {
           id: c.data.id,
           body: c.data.body,
           score: c.data.score,
           createdOnUtc: c.data.created_utc,
           author: c.data.author,
-          replies: this.mapComments(c.data.replies)
+          replies: this.mapComments(c.data.replies),
         };
       });
 
