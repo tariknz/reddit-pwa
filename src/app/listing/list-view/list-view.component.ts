@@ -57,7 +57,7 @@ export class ListViewComponent implements OnInit {
       );
     }
 
-    // replace src
+    // switch to the video view
     if (listing.media) {
       listing.media.enablePreview = true;
     }

@@ -12,7 +12,7 @@
         [alt]="item.title"
       />
       <video appItemViewImage autoplay controls playsinline muted
-        *ngIf="item.media && item.media.enablePreview && item.media.isGif"
+        *ngIf="item.media && item.media.enablePreview"
         [src]="item.media.url">
       </video>
       <div appItemViewVotes>{{ item.score | number }} upvotes</div>
