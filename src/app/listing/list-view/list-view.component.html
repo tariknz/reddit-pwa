@@ -8,6 +8,7 @@
         <div>{{ item.author }}</div>
       </div>
       <img appItemViewImage *ngIf="item.previewImage"
+        [style.min-height]="item.previewImage.height + 'px'"
         [src]="item.previewImage.url"
         [alt]="item.title"
       />

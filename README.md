@@ -1,5 +1,7 @@
 # Duck Reader for Reddit
 
+[![Build Status](https://travis-ci.org/tariknz/reddit-pwa.svg?branch=master)](https://travis-ci.org/tariknz/reddit-pwa)
+
 An Instagram-style PWA app built with Angular and ngrx. See it in action at: https://tariknz.github.io/reddit-pwa/
 
 ## Why

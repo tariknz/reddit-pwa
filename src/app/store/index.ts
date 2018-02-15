@@ -3,7 +3,7 @@ import { MetaReducer, ActionReducerMap, createFeatureSelector } from '@ngrx/stor
 import { environment } from '../../environments/environment';
 import { logger } from './logger';
 import { ListingState } from '../listing/listing.reducer';
-import { createSelector } from '@ngrx/store/src/selector';
+import { createSelector } from '@ngrx/store';
 
 export interface StoreState {
   routerReducer: fromRouter.RouterReducerState;
